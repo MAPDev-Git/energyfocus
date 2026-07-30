@@ -5,7 +5,7 @@ import bottleImg from '../../Assets/EnergyFocus_Bottle_Base_SF.png';
 
 export default function Hero() {
   return (
-    <section className="relative pt-36 pb-24 md:pt-44 md:pb-32 overflow-hidden bg-[#050C16]">
+    <section className="relative pt-16 pb-20 md:pt-24 md:pb-28 overflow-hidden bg-[#050C16]">
       {/* Background Radial Glow */}
       <div className="hero-glow-bg" />
 
