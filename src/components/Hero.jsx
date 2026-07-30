@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ShoppingCart, ShieldCheck, Truck, Award, Star } from 'lucide-react';
-import bottleImg from '../../Assets/EnergyFocus_Bottle_Base_SF.png';
+import heroVideo from '../../Assets/Video_EF_CIma_Vertical.mp4';
 
 export default function Hero() {
   return (
@@ -84,7 +84,7 @@ export default function Hero() {
 
           </motion.div>
 
-          {/* Right Product Image */}
+          {/* Right Product Video */}
           <motion.div
             className="lg:col-span-5 relative flex justify-center items-center"
             initial={{ opacity: 0, scale: 0.95 }}
@@ -93,11 +93,14 @@ export default function Hero() {
           >
             <div className="absolute w-80 h-80 rounded-full bg-gradient-to-tr from-[#C9A84C]/25 to-transparent blur-3xl" />
             
-            <div className="relative z-10 glass-panel p-8 max-w-sm w-full flex flex-col items-center border border-[#C9A84C]/30">
-              <img
-                src={bottleImg}
-                alt="Energy & Focus Bottle"
-                className="w-full h-auto object-contain max-h-[390px] drop-shadow-[0_25px_35px_rgba(0,0,0,0.85)] hover:scale-105 transition-transform duration-500"
+            <div className="relative z-10 glass-panel p-4 max-w-sm w-full flex flex-col items-center border border-[#C9A84C]/30 overflow-hidden">
+              <video
+                src={heroVideo}
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="w-full h-auto object-cover rounded-xl shadow-2xl max-h-[460px]"
               />
               <div className="mt-4 bg-[#0D1522] border border-[#C9A84C]/30 rounded-xl px-4 py-2 w-full flex items-center justify-between text-xs font-mono">
                 <span className="text-[#8D7556]">FORMULA:</span>
