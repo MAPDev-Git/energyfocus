@@ -13,7 +13,7 @@ const packages = [
     perBottle: '/ Bottle',
     badge: null,
     popular: false,
-    link: 'https://shop.morethanaromas.com/energy-and-focus-supplement',
+    link: 'https://www.amazon.com/dp/B0G2KL7Y28',
   },
   {
     title: 'MOST POPULAR',
@@ -24,7 +24,7 @@ const packages = [
     perBottle: '/ Bottle ($78 Total)',
     badge: 'MOST POPULAR',
     popular: true,
-    link: 'https://shop.morethanaromas.com/energy-and-focus-premium-supplement-3-bottles',
+    link: 'https://www.amazon.com/dp/B0G2KL7Y28',
   },
   {
     title: 'GREAT DEAL',
@@ -35,7 +35,7 @@ const packages = [
     perBottle: '/ Bottle ($140 Total)',
     badge: 'GREAT DEAL',
     popular: false,
-    link: 'https://shop.morethanaromas.com/energy-and-focus-supplement-5-bottles',
+    link: 'https://www.amazon.com/dp/B0G2KL7Y28',
   },
 ];
 

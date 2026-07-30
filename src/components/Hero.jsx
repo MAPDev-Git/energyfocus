@@ -37,7 +37,12 @@ export default function Hero() {
 
             {/* CTA Button */}
             <div className="pt-2">
-              <a href="#pricing" className="btn-gold text-lg py-4 px-10 rounded-xl shadow-[0_0_30px_rgba(201,168,76,0.35)]">
+              <a
+                href="https://www.amazon.com/dp/B0G2KL7Y28"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-gold text-lg py-4 px-10 rounded-xl shadow-[0_0_30px_rgba(201,168,76,0.35)]"
+              >
                 <ShoppingCart className="w-5 h-5" /> Buy Now
               </a>
             </div>
