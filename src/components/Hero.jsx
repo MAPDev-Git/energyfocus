@@ -5,7 +5,7 @@ import heroVideo from '../../Assets/Video_EF_CIma_Vertical.mp4';
 
 export default function Hero() {
   return (
-    <section className="relative pt-16 pb-20 md:pt-24 md:pb-28 overflow-hidden bg-[#050C16]">
+    <section className="relative pt-16 pb-20 md:pt-24 md:pb-28 overflow-hidden bg-[#000000]">
       {/* Background Radial Glow */}
       <div className="hero-glow-bg" />
 

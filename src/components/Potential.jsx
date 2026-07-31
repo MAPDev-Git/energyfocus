@@ -27,7 +27,7 @@ const blend = [
 
 export default function Potential() {
   return (
-    <section id="potential" className="py-24 bg-[#0D1522]/30 relative z-20">
+    <section id="potential" className="py-24 bg-gradient-to-b from-[#0A121E] via-[#0D1522]/30 to-[#08101C] relative z-20">
       <div className="container relative z-10">
         
         {/* Header */}

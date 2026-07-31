@@ -31,7 +31,7 @@ const features = [
 
 export default function Benefits() {
   return (
-    <section id="why-works" className="py-24 bg-[#0D1522]/40 relative">
+    <section id="why-works" className="py-24 bg-gradient-to-b from-[#000000] via-[#050C16] to-[#0A121E] relative">
       <div className="container relative z-10">
         
         {/* Section Header */}

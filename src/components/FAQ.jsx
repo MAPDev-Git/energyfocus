@@ -42,7 +42,7 @@ export default function FAQ() {
   };
 
   return (
-    <section id="faq" className="py-24 bg-[#050C16] relative">
+    <section id="faq" className="py-24 bg-gradient-to-b from-[#020306] via-[#010103] to-[#000000] relative">
       <div className="container max-w-4xl mx-auto z-10 relative">
         
         {/* Header */}

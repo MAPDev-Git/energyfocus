@@ -44,7 +44,7 @@ const packages = [
 
 export default function Pricing() {
   return (
-    <section id="pricing" className="py-24 relative overflow-hidden bg-[#050C16]">
+    <section id="pricing" className="py-24 relative overflow-hidden bg-gradient-to-b from-[#08101C] via-[#050C16] to-[#040912]">
       {/* Glow background */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#C9A84C]/5 to-transparent pointer-events-none" />
 

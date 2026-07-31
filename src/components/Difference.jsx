@@ -12,7 +12,7 @@ const comparisons = [
 
 export default function Difference() {
   return (
-    <section className="py-24 relative overflow-hidden bg-[#050C16]">
+    <section className="py-24 relative overflow-hidden bg-gradient-to-b from-[#0A121E] via-[#0D1522]/40 to-[#0A121E]">
       <div className="container relative z-10">
         
         {/* Header */}

@@ -43,7 +43,7 @@ export default function Testimonials() {
   };
 
   return (
-    <section id="testimonials" className="py-24 bg-[#0D1522]/40 relative">
+    <section id="testimonials" className="py-24 bg-gradient-to-b from-[#040912] via-[#03060C] to-[#020306] relative">
       <div className="container z-10 relative">
         
         {/* Header */}
