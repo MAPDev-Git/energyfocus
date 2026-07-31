@@ -91,22 +91,16 @@ export default function Hero() {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <div className="absolute w-80 h-80 rounded-full bg-gradient-to-tr from-[#C9A84C]/25 to-transparent blur-3xl" />
+            <div className="absolute w-80 h-80 rounded-full bg-gradient-to-tr from-[#C9A84C]/30 to-transparent blur-3xl" />
             
-            <div className="relative z-10 glass-panel p-4 max-w-sm w-full flex flex-col items-center border border-[#C9A84C]/30 overflow-hidden">
-              <video
-                src={heroVideo}
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="w-full h-auto object-cover rounded-xl shadow-2xl max-h-[460px]"
-              />
-              <div className="mt-4 bg-[#0D1522] border border-[#C9A84C]/30 rounded-xl px-4 py-2 w-full flex items-center justify-between text-xs font-mono">
-                <span className="text-[#8D7556]">FORMULA:</span>
-                <span className="text-[#E0C060] font-bold">ASHWAGANDHA • CREATINE • CAFFEINE</span>
-              </div>
-            </div>
+            <video
+              src={heroVideo}
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="relative z-10 w-full max-w-sm h-auto object-cover rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.9)] max-h-[500px]"
+            />
           </motion.div>
 
         </div>

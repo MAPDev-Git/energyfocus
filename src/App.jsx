@@ -14,12 +14,12 @@ export default function App() {
     <div className="min-h-screen bg-[#050C16] text-[#EDEBE6] selection:bg-[#C9A84C] selection:text-[#050C16]">
       <main>
         <Hero />
+        <InstagramCarousel />
         <Benefits />
         <Difference />
         <Potential />
         <Pricing />
         <Testimonials />
-        <InstagramCarousel />
         <FAQ />
       </main>
       <Footer />
