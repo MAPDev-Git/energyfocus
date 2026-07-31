@@ -18,9 +18,6 @@ export default function Footer() {
           <div className="md:col-span-5 space-y-4">
             <div className="flex items-center gap-3">
               <img src={logoImg} alt="Energy & Focus" className="h-9 w-auto" />
-              <span className="font-extrabold text-base tracking-wider text-gradient-gold">
-                ENERGY & FOCUS
-              </span>
             </div>
             <p className="text-xs text-[#9A8E6E] max-w-sm leading-relaxed">
               Reach out for inquiries or support. Reach us at support@morethanaromas.com
