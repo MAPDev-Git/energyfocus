@@ -27,7 +27,7 @@ const blend = [
 
 export default function Potential() {
   return (
-    <section id="potential" className="py-24 bg-[#0D1522]/30 relative overflow-hidden">
+    <section id="potential" className="py-24 bg-[#0D1522]/30 relative z-20">
       <div className="container relative z-10">
         
         {/* Header */}
@@ -87,26 +87,32 @@ export default function Potential() {
             ))}
           </div>
 
-          {/* Right Column: Label Showcase */}
+          {/* Right Column: Freestanding Label with 4x Hover Zoom */}
           <motion.div
-            className="lg:col-span-5 flex justify-center"
+            className="lg:col-span-5 flex flex-col items-center justify-center relative py-6 z-30"
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <div className="glass-panel p-6 max-w-md w-full text-center border border-[#C9A84C]/25">
-              <img
-                src={labelImg}
-                alt="Energy & Focus Supplement Label"
-                className="w-full h-auto rounded-xl border border-[#C9A84C]/20 shadow-2xl mb-4"
-              />
-              <span className="text-xs font-mono text-[#E0C060] block mb-1">
-                100% TRANSPARENT LABEL
-              </span>
-              <p className="text-xs text-[#8D7556]">
-                No proprietary blends. Full clinical dosages of every key ingredient for maximum safety and efficacy.
-              </p>
+            {/* Freestanding label without box container */}
+            <div className="relative group cursor-zoom-in w-full max-w-md flex flex-col items-center">
+              <div className="relative z-30 transition-transform duration-500 ease-out origin-center group-hover:scale-[3.5] md:group-hover:scale-[4] group-hover:z-50">
+                <img
+                  src={labelImg}
+                  alt="Energy & Focus Supplement Label"
+                  className="w-full h-auto rounded-xl border border-[#C9A84C]/40 shadow-[0_15px_45px_rgba(0,0,0,0.85)] group-hover:shadow-[0_0_80px_rgba(201,168,76,0.6)]"
+                />
+              </div>
+
+              <div className="mt-6 text-center transition-all duration-300 group-hover:opacity-20">
+                <span className="text-xs font-mono text-[#E0C060] uppercase tracking-widest block mb-1">
+                  🔍 100% TRANSPARENT LABEL (Hover to Zoom 4x)
+                </span>
+                <p className="text-xs text-[#8D7556] max-w-sm">
+                  No proprietary blends. Full clinical dosages of every key ingredient for maximum safety and efficacy.
+                </p>
+              </div>
             </div>
           </motion.div>
 

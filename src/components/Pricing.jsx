@@ -11,8 +11,9 @@ const packages = [
     price: '$33',
     originalPrice: '',
     perBottle: '/ Bottle',
-    badge: null,
-    popular: false,
+    badge: 'AVAILABLE',
+    popular: true,
+    inStock: true,
     link: 'https://www.amazon.com/dp/B0G2KL7Y28',
   },
   {
@@ -22,9 +23,10 @@ const packages = [
     price: '$26',
     originalPrice: '$84',
     perBottle: '/ Bottle ($78 Total)',
-    badge: 'MOST POPULAR',
-    popular: true,
-    link: 'https://www.amazon.com/dp/B0G2KL7Y28',
+    badge: 'OUT OF STOCK',
+    popular: false,
+    inStock: false,
+    link: '#',
   },
   {
     title: 'GREAT DEAL',
@@ -33,9 +35,10 @@ const packages = [
     price: '$28',
     originalPrice: '$145',
     perBottle: '/ Bottle ($140 Total)',
-    badge: 'GREAT DEAL',
+    badge: 'OUT OF STOCK',
     popular: false,
-    link: 'https://www.amazon.com/dp/B0G2KL7Y28',
+    inStock: false,
+    link: '#',
   },
 ];
 
@@ -63,10 +66,10 @@ export default function Pricing() {
           {packages.map((pkg, idx) => (
             <motion.div
               key={idx}
-              className={`glass-panel p-8 relative flex flex-col justify-between ${
-                pkg.popular
+              className={`glass-panel p-8 relative flex flex-col justify-between transition-all duration-300 ${
+                pkg.inStock
                   ? 'border-2 border-[#E0C060] shadow-[0_0_45px_rgba(201,168,76,0.35)] bg-[#0D1522]'
-                  : 'border border-[#C9A84C]/20'
+                  : 'border border-gray-800 bg-[#080E17]/60 opacity-60 grayscale'
               }`}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -75,8 +78,15 @@ export default function Pricing() {
             >
               {/* Badge */}
               {pkg.badge && (
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-[#E0C060] to-[#C9A84C] text-[#050C16] font-black text-xs tracking-widest uppercase px-4 py-1.5 rounded-full shadow-lg flex items-center gap-1.5">
-                  <Sparkles className="w-3.5 h-3.5" /> {pkg.badge}
+                <div
+                  className={`absolute -top-4 left-1/2 -translate-x-1/2 font-black text-xs tracking-widest uppercase px-4 py-1.5 rounded-full shadow-lg flex items-center gap-1.5 ${
+                    pkg.inStock
+                      ? 'bg-gradient-to-r from-[#E0C060] to-[#C9A84C] text-[#050C16]'
+                      : 'bg-gray-800 text-gray-400 border border-gray-700'
+                  }`}
+                >
+                  {pkg.inStock && <Sparkles className="w-3.5 h-3.5" />}
+                  {pkg.badge}
                 </div>
               )}
 
@@ -94,7 +104,9 @@ export default function Pricing() {
                         {pkg.originalPrice}
                       </span>
                     )}
-                    <span className="text-5xl font-black text-[#E0C060] font-mono">{pkg.price}</span>
+                    <span className={`text-5xl font-black font-mono ${pkg.inStock ? 'text-[#E0C060]' : 'text-gray-500'}`}>
+                      {pkg.price}
+                    </span>
                   </div>
                   <p className="text-xs text-[#EDEBE6] mt-1 font-mono font-semibold">{pkg.perBottle}</p>
                 </div>
@@ -111,28 +123,32 @@ export default function Pricing() {
                 {/* Benefits List */}
                 <ul className="space-y-3 text-xs text-[#EDEBE6] mb-8">
                   <li className="flex items-center gap-2">
-                    <Check className="w-4 h-4 text-[#E0C060]" /> Free US shipping
+                    <Check className={`w-4 h-4 ${pkg.inStock ? 'text-[#E0C060]' : 'text-gray-600'}`} /> Free US shipping
                   </li>
                   <li className="flex items-center gap-2">
-                    <Check className="w-4 h-4 text-[#E0C060]" /> Ashwagandha, Creatine & Caffeine
+                    <Check className={`w-4 h-4 ${pkg.inStock ? 'text-[#E0C060]' : 'text-gray-600'}`} /> Ashwagandha, Creatine & Caffeine
                   </li>
                   <li className="flex items-center gap-2">
-                    <Check className="w-4 h-4 text-[#E0C060]" /> 60 Capsules per bottle
+                    <Check className={`w-4 h-4 ${pkg.inStock ? 'text-[#E0C060]' : 'text-gray-600'}`} /> 60 Capsules per bottle
                   </li>
                 </ul>
               </div>
 
               <div>
-                <a
-                  href={pkg.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`w-full ${
-                    pkg.popular ? 'btn-gold' : 'btn-outline'
-                  } py-3.5 text-center flex items-center justify-center gap-2 text-sm font-bold`}
-                >
-                  <ShoppingCart className="w-4 h-4" /> Buy Now
-                </a>
+                {pkg.inStock ? (
+                  <a
+                    href={pkg.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full btn-gold py-3.5 text-center flex items-center justify-center gap-2 text-sm font-bold"
+                  >
+                    <ShoppingCart className="w-4 h-4" /> Buy Now
+                  </a>
+                ) : (
+                  <div className="w-full py-3.5 bg-gray-800/80 text-gray-400 rounded-xl text-center text-sm font-bold tracking-wider uppercase border border-gray-700/50 cursor-not-allowed select-none">
+                    OUT OF STOCK
+                  </div>
+                )}
               </div>
             </motion.div>
           ))}
