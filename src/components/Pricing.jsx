@@ -5,18 +5,6 @@ import bottleImg from '../../Assets/EnergyFocus_Bottle_Base_SF.png';
 
 const packages = [
   {
-    title: 'SINGLE',
-    bottles: '1 Bottle',
-    supply: '30-days supply',
-    price: '$33',
-    originalPrice: '',
-    perBottle: '/ Bottle',
-    badge: 'AVAILABLE',
-    popular: true,
-    inStock: true,
-    link: 'https://www.amazon.com/dp/B0G2KL7Y28',
-  },
-  {
     title: 'MOST POPULAR',
     bottles: '3 Bottles',
     supply: '90-days supply',
@@ -27,6 +15,18 @@ const packages = [
     popular: false,
     inStock: false,
     link: '#',
+  },
+  {
+    title: 'SINGLE BOTTLE',
+    bottles: '1 Bottle',
+    supply: '30-days supply',
+    price: '$33',
+    originalPrice: '',
+    perBottle: '/ Bottle',
+    badge: 'AVAILABLE',
+    popular: true,
+    inStock: true,
+    link: 'https://www.amazon.com/dp/B0G2KL7Y28',
   },
   {
     title: 'GREAT DEAL',
@@ -62,14 +62,14 @@ export default function Pricing() {
         </div>
 
         {/* 3 Packages Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch mb-16 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center mb-16 max-w-6xl mx-auto">
           {packages.map((pkg, idx) => (
             <motion.div
               key={idx}
-              className={`glass-panel p-8 relative flex flex-col justify-between transition-all duration-300 ${
+              className={`glass-panel relative flex flex-col justify-between transition-all duration-300 ${
                 pkg.inStock
-                  ? 'border-2 border-[#E0C060] shadow-[0_0_45px_rgba(201,168,76,0.35)] bg-[#0D1522]'
-                  : 'border border-gray-800 bg-[#080E17]/60 opacity-60 grayscale'
+                  ? 'p-8 md:p-10 md:scale-105 z-20 border-2 border-[#E0C060] shadow-[0_0_55px_rgba(201,168,76,0.45)] bg-[#0D1522]'
+                  : 'p-6 md:p-7 md:scale-95 z-10 border border-gray-800 bg-[#080E17]/60 opacity-50 grayscale'
               }`}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -79,10 +79,10 @@ export default function Pricing() {
               {/* Badge */}
               {pkg.badge && (
                 <div
-                  className={`absolute -top-4 left-1/2 -translate-x-1/2 font-black text-xs tracking-widest uppercase px-4 py-1.5 rounded-full shadow-lg flex items-center gap-1.5 ${
+                  className={`absolute -top-4 left-1/2 -translate-x-1/2 font-black tracking-widest uppercase px-4 py-1.5 rounded-full shadow-lg flex items-center gap-1.5 ${
                     pkg.inStock
-                      ? 'bg-gradient-to-r from-[#E0C060] to-[#C9A84C] text-[#050C16]'
-                      : 'bg-gray-800 text-gray-400 border border-gray-700'
+                      ? 'text-xs bg-gradient-to-r from-[#E0C060] to-[#C9A84C] text-[#050C16] shadow-[0_4px_15px_rgba(201,168,76,0.4)] scale-110'
+                      : 'text-[10px] bg-gray-800 text-gray-400 border border-gray-700'
                   }`}
                 >
                   {pkg.inStock && <Sparkles className="w-3.5 h-3.5" />}
@@ -92,19 +92,25 @@ export default function Pricing() {
 
               <div>
                 <div className="text-center pb-6 border-b border-[#C9A84C]/15">
-                  <span className="text-xs font-mono text-[#8D7556] uppercase tracking-widest block mb-1">
+                  <span className={`font-mono uppercase tracking-widest block mb-1 ${
+                    pkg.inStock ? 'text-xs text-[#E0C060] font-bold' : 'text-[11px] text-[#8D7556]'
+                  }`}>
                     {pkg.title}
                   </span>
-                  <h3 className="text-2xl font-extrabold text-[#EDEBE6]">{pkg.bottles}</h3>
+                  <h3 className={`font-extrabold ${pkg.inStock ? 'text-3xl text-[#EDEBE6]' : 'text-xl text-gray-300'}`}>
+                    {pkg.bottles}
+                  </h3>
                   <span className="text-xs text-[#8D7556] font-mono block mt-1">{pkg.supply}</span>
 
                   <div className="mt-6 flex items-baseline justify-center gap-2">
                     {pkg.originalPrice && (
-                      <span className="text-lg text-[#8D7556] line-through font-mono">
+                      <span className="text-sm text-[#8D7556] line-through font-mono">
                         {pkg.originalPrice}
                       </span>
                     )}
-                    <span className={`text-5xl font-black font-mono ${pkg.inStock ? 'text-[#E0C060]' : 'text-gray-500'}`}>
+                    <span className={`font-black font-mono ${
+                      pkg.inStock ? 'text-6xl text-[#E0C060]' : 'text-4xl text-gray-500'
+                    }`}>
                       {pkg.price}
                     </span>
                   </div>
@@ -116,7 +122,9 @@ export default function Pricing() {
                   <img
                     src={bottleImg}
                     alt={pkg.bottles}
-                    className="h-36 w-auto object-contain drop-shadow-md"
+                    className={`object-contain drop-shadow-md transition-all duration-300 ${
+                      pkg.inStock ? 'h-44 md:h-48 scale-105' : 'h-32 opacity-70'
+                    }`}
                   />
                 </div>
 
@@ -140,12 +148,12 @@ export default function Pricing() {
                     href={pkg.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full btn-gold py-3.5 text-center flex items-center justify-center gap-2 text-sm font-bold"
+                    className="w-full btn-gold py-4 text-center flex items-center justify-center gap-2 text-base font-extrabold shadow-[0_0_25px_rgba(201,168,76,0.35)]"
                   >
-                    <ShoppingCart className="w-4 h-4" /> Buy Now
+                    <ShoppingCart className="w-5 h-5" /> Buy Now
                   </a>
                 ) : (
-                  <div className="w-full py-3.5 bg-gray-800/80 text-gray-400 rounded-xl text-center text-sm font-bold tracking-wider uppercase border border-gray-700/50 cursor-not-allowed select-none">
+                  <div className="w-full py-3 bg-gray-800/80 text-gray-400 rounded-xl text-center text-xs font-bold tracking-wider uppercase border border-gray-700/50 cursor-not-allowed select-none">
                     OUT OF STOCK
                   </div>
                 )}
