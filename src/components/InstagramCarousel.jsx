@@ -27,7 +27,7 @@ export default function InstagramCarousel() {
   return (
     <section
       ref={targetRef}
-      className="relative h-[300vh] bg-gradient-to-b from-[#000000] via-[#050C16] to-[#0A121E]"
+      className="relative h-[300vh] bg-[#000000]"
     >
       {/* Sticky Viewport: Pins screen while mouse scrolling through cards */}
       <div className="sticky top-0 h-screen flex items-center overflow-hidden">
