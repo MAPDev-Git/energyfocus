@@ -4,6 +4,7 @@ import Benefits from './components/Benefits';
 import Difference from './components/Difference';
 import Potential from './components/Potential';
 import Testimonials from './components/Testimonials';
+import InstagramCarousel from './components/InstagramCarousel';
 import Pricing from './components/Pricing';
 import FAQ from './components/FAQ';
 import Footer from './components/Footer';
@@ -18,6 +19,7 @@ export default function App() {
         <Potential />
         <Pricing />
         <Testimonials />
+        <InstagramCarousel />
         <FAQ />
       </main>
       <Footer />
