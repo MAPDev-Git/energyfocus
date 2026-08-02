@@ -95,17 +95,15 @@ export default function Footer() {
           
           <div className="flex items-center gap-6">
             <a
-              href="https://www.morethanaromas.com/privacy-policy"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="#privacy-policy"
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
               className="hover:text-[#F5D66E] transition-colors"
             >
               Privacy Policy
             </a>
             <a
-              href="https://www.morethanaromas.com/terms-and-conditions"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="#terms-and-conditions"
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
               className="hover:text-[#F5D66E] transition-colors"
             >
               Terms and Conditions

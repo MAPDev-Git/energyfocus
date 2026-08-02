@@ -6,7 +6,6 @@ const testimonials = [
   {
     name: 'Marcus K.',
     location: 'Ohio, USA',
-    role: 'Software Engineer',
     quote:
       'For me, every day felt like a juggling act. Work deadlines, family commitments, personal goals – it was a constant battle. Now, I move with purpose. My thoughts are sharp, my energy is consistent, and I effortlessly manage my packed schedule.',
     stars: 5,
@@ -14,7 +13,6 @@ const testimonials = [
   {
     name: 'Sarah L.',
     location: 'New York, USA',
-    role: 'Creative Director',
     quote:
       "I used to dread that feeling. The workday wasn't over, but my focus was. I'd reach for another coffee, knowing it was a bad trade – a short, anxious buzz. I stopped trading my performance for jitters. Energy & Focus gave me clean, sustained clarity.",
     stars: 5,
@@ -22,7 +20,6 @@ const testimonials = [
   {
     name: 'David R.',
     location: 'California, USA',
-    role: 'Entrepreneur',
     quote:
       'I tried pushing through with coffee and endless to-do lists, but the underlying mental fatigue remained. Energy & Focus completely changed my afternoon routine. No crash, just laser focus.',
     stars: 5,
@@ -76,7 +73,7 @@ export default function Testimonials() {
               <div className="pt-4 border-t border-[#C9A84C]/15 flex items-center justify-between">
                 <div>
                   <h4 className="text-sm font-bold text-[#EDEBE6]">{t.name}</h4>
-                  <span className="text-xs text-[#8D7556] font-mono">{t.role} • {t.location}</span>
+                  <span className="text-xs text-[#8D7556] font-mono">{t.location}</span>
                 </div>
                 <div className="flex items-center gap-1 text-[11px] font-mono text-[#E0C060]">
                   <CheckCircle2 className="w-3.5 h-3.5" />
