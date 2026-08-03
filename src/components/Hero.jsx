@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ShoppingCart, ShieldCheck, Truck, Award, Star } from 'lucide-react';
 import heroVideo from '../../Assets/Video_EF_CIma_Vertical.mp4';
+import amazonBadgeImg from '../../Assets/Amazon_Avaliable_Seller_Certified_3000x800.png';
 
 export default function Hero() {
   return (
@@ -35,15 +36,28 @@ export default function Hero() {
               Experience unmatched energy and laser-sharp focus with our scientifically-formulated supplement. Trusted by thousands of high performers.
             </p>
 
-            {/* CTA Button */}
-            <div className="pt-2">
+            {/* CTA Button & Amazon Certified Badge */}
+            <div className="pt-2 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 w-full sm:w-auto">
               <a
                 href="https://buy.stripe.com/00w4gB3Qa7DCeYkglA3Nm00"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-gold text-lg py-4 px-10 rounded-xl shadow-[0_0_30px_rgba(201,168,76,0.35)]"
+                className="btn-gold text-lg py-4 px-10 rounded-xl shadow-[0_0_30px_rgba(201,168,76,0.35)] w-full sm:w-auto text-center"
               >
                 <ShoppingCart className="w-5 h-5" /> Buy Now
+              </a>
+
+              <a
+                href="https://buy.stripe.com/00w4gB3Qa7DCeYkglA3Nm00"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center hover:scale-105 transition-transform duration-300"
+              >
+                <img
+                  src={amazonBadgeImg}
+                  alt="Amazon Available Seller Certified"
+                  className="h-12 md:h-14 w-auto object-contain drop-shadow-[0_4px_15px_rgba(0,0,0,0.5)]"
+                />
               </a>
             </div>
 
