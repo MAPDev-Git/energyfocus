@@ -1,6 +1,7 @@
 import React from 'react';
 import { Instagram, Facebook, Mail, ArrowUp } from 'lucide-react';
 import logoImg from '../../Assets/Logo E&F Powerful.png';
+import mapwebLogo from '../../Assets/logo_mapweb.png';
 
 export default function Footer() {
   const scrollToTop = () => {
@@ -90,8 +91,22 @@ export default function Footer() {
         </div>
 
         {/* Bottom Rights */}
-        <div className="border-t border-[#C9A84C]/10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p>More Than Aromas © 2025. Energy & Focus All rights reserved.</p>
+        <div className="border-t border-[#C9A84C]/10 pt-6 flex flex-col lg:flex-row items-center justify-between gap-4">
+          <div className="flex flex-col sm:flex-row items-center gap-3 text-center sm:text-left">
+            <p>More Than Aromas © 2025. Energy & Focus All rights reserved.</p>
+            <span className="hidden sm:inline text-[#C9A84C]/30">•</span>
+            <div className="flex items-center gap-2">
+              <span className="text-[#9A8E6E] text-xs">Powered by:</span>
+              <a
+                href="https://mapweb.utilafull.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center hover:opacity-80 transition-opacity"
+              >
+                <img src={mapwebLogo} alt="MAP Web" className="h-6 w-auto object-contain" />
+              </a>
+            </div>
+          </div>
           
           <div className="flex items-center gap-6">
             <a
