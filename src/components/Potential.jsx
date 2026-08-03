@@ -101,7 +101,7 @@ export default function Potential() {
                 <img
                   src={labelImg}
                   alt="Energy & Focus Supplement Label"
-                  className="w-full h-auto rounded-xl border border-[#C9A84C]/40 shadow-[0_15px_45px_rgba(0,0,0,0.85)] group-hover:shadow-[0_0_80px_rgba(201,168,76,0.6)]"
+                  className="w-full h-auto rounded-md border border-[#C9A84C]/40 shadow-[0_15px_45px_rgba(0,0,0,0.85)] group-hover:shadow-[0_0_80px_rgba(201,168,76,0.6)]"
                 />
               </div>
 

@@ -50,7 +50,7 @@ export default function InstagramCarousel() {
               className="shrink-0 w-72 md:w-80 group cursor-zoom-in relative"
             >
               {/* Pure Freestanding Poster Image with Click to Expand */}
-              <div className="relative rounded-2xl overflow-hidden shadow-[0_20px_45px_rgba(0,0,0,0.9)] border border-[#C9A84C]/30 transition-all duration-300 group-hover:scale-105 group-hover:shadow-[0_0_50px_rgba(201,168,76,0.5)] group-hover:border-[#E0C060]">
+              <div className="relative rounded-md overflow-hidden shadow-[0_20px_45px_rgba(0,0,0,0.9)] border border-[#C9A84C]/30 transition-all duration-300 group-hover:scale-105 group-hover:shadow-[0_0_50px_rgba(201,168,76,0.5)] group-hover:border-[#E0C060]">
                 <img
                   src={src}
                   alt={`Gallery Image ${(idx % 5) + 1}`}
