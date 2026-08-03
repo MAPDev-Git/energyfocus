@@ -99,7 +99,7 @@ export default function Formula() {
               <img
                 src={labelImg}
                 alt="Energy & Focus Formula Label"
-                className="w-full h-auto rounded-md object-cover mb-4 border border-[#C9A84C]/20 shadow-2xl"
+                className="w-full h-auto rounded-[2px] object-cover mb-4 border border-[#C9A84C]/20 shadow-2xl"
               />
               <span className="text-xs font-mono text-[#F5D66E] block mb-1">
                 FÓRMULA TRANSPARENTE
