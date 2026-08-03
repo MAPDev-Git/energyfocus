@@ -38,7 +38,7 @@ export default function Hero() {
             {/* CTA Button */}
             <div className="pt-2">
               <a
-                href="https://www.amazon.com/dp/B0G2KL7Y28"
+                href="https://buy.stripe.com/00w4gB3Qa7DCeYkglA3Nm00"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-gold text-lg py-4 px-10 rounded-xl shadow-[0_0_30px_rgba(201,168,76,0.35)]"

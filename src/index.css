@@ -240,3 +240,71 @@ body {
   pointer-events: none;
   z-index: 0;
 }
+
+/* ==========================================================================
+   NEON HOVER CARD FOR AVAILABLE PRODUCT (BLUE / CYAN NEON)
+   ========================================================================== */
+.available-card-neon {
+  position: relative;
+  background: linear-gradient(180deg, #091322 0%, #050C16 100%);
+  border: 2px solid #38BDF8;
+  border-radius: var(--radius-lg);
+  box-shadow: 
+    0 0 35px rgba(56, 189, 248, 0.4),
+    0 0 15px rgba(0, 224, 255, 0.25),
+    0 15px 40px rgba(0, 0, 0, 0.8);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: visible; /* Permite que o badge de topo (AVAILABLE) fique visível sem corte */
+}
+
+/* Neon Top-to-Bottom Light Blue/Cyan Gradient Overlay on Hover */
+.available-card-neon::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: calc(var(--radius-lg) - 2px);
+  background: linear-gradient(
+    180deg, 
+    rgba(56, 189, 248, 0.28) 0%, 
+    rgba(0, 224, 255, 0.18) 35%, 
+    rgba(14, 165, 233, 0.22) 70%,
+    rgba(37, 99, 235, 0.20) 100%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Inner Radial Glow Sweep Effect (Cyan Blue) */
+.available-card-neon::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(0, 224, 255, 0.15) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  z-index: 2;
+  border-radius: var(--radius-lg);
+}
+
+.available-card-neon:hover {
+  transform: translateY(-8px) scale(1.04);
+  border-color: #00F0FF;
+  box-shadow: 
+    0 0 30px rgba(0, 240, 255, 0.9),
+    0 0 60px rgba(56, 189, 248, 0.7),
+    0 0 95px rgba(14, 165, 233, 0.55),
+    0 0 130px rgba(37, 99, 235, 0.4);
+}
+
+.available-card-neon:hover::before,
+.available-card-neon:hover::after {
+  opacity: 1;
+}
+
+
