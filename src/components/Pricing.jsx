@@ -8,7 +8,7 @@ const packages = [
     title: 'SINGLE BOTTLE',
     bottles: '1 Bottle',
     supply: '30-days supply',
-    price: '$33',
+    price: '$29.69',
     originalPrice: '',
     perBottle: '/ Bottle',
     badge: 'AVAILABLE',
@@ -84,8 +84,8 @@ export default function Pricing() {
                         {pkg.originalPrice}
                       </span>
                     )}
-                    <span className={`font-black font-mono ${
-                      pkg.inStock ? 'text-6xl text-[#E0C060] drop-shadow-[0_2px_15px_rgba(224,192,96,0.3)]' : 'text-4xl text-gray-500'
+                    <span className={`font-black font-sans tracking-[-0.06em] ${
+                      pkg.inStock ? 'text-6xl md:text-7xl text-[#E0C060] drop-shadow-[0_2px_15px_rgba(224,192,96,0.35)]' : 'text-4xl text-gray-500'
                     }`}>
                       {pkg.price}
                     </span>
@@ -94,12 +94,14 @@ export default function Pricing() {
                 </div>
 
                 {/* Bottle Image */}
-                <div className="py-8 flex justify-center">
+                <div className="py-8 flex justify-center overflow-visible">
                   <img
                     src={bottleImg}
                     alt={pkg.bottles}
-                    className={`object-contain drop-shadow-[0_15px_25px_rgba(0,0,0,0.8)] transition-all duration-300 ${
-                      pkg.inStock ? 'h-64 md:h-72 scale-105 hover:scale-110' : 'h-32 opacity-70'
+                    className={`object-contain transition-all duration-500 ease-out cursor-pointer ${
+                      pkg.inStock
+                        ? 'h-72 md:h-80 scale-100 hover:scale-125 drop-shadow-[0_20px_35px_rgba(0,0,0,0.85)] hover:drop-shadow-[0_25px_50px_rgba(224,192,96,0.45)]'
+                        : 'h-32 opacity-70'
                     }`}
                   />
                 </div>
