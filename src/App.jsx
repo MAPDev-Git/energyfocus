@@ -12,11 +12,22 @@ import PrivacyPolicy from './components/PrivacyPolicy';
 import TermsAndConditions from './components/TermsAndConditions';
 
 export default function App() {
-  const [currentRoute, setCurrentRoute] = useState(() => {
-    return typeof window !== 'undefined' ? window.location.hash : '';
-  });
+  const [currentRoute, setCurrentRoute] = useState('');
 
   useEffect(() => {
+    // Force browser to disable automatic scroll restoration on refresh
+    if (typeof window !== 'undefined' && 'scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual';
+    }
+
+    // Reset scroll position to top (Hero section) immediately on load/refresh
+    window.scrollTo(0, 0);
+
+    // Remove hash from URL on page refresh to ensure it always lands on Hero
+    if (typeof window !== 'undefined' && window.location.hash) {
+      window.history.replaceState(null, '', window.location.pathname + window.location.search);
+    }
+
     const handleHashChange = () => {
       const hash = window.location.hash;
       setCurrentRoute(hash);
@@ -33,8 +44,17 @@ export default function App() {
       }
     };
 
+    const handleBeforeUnload = () => {
+      window.scrollTo(0, 0);
+    };
+
     window.addEventListener('hashchange', handleHashChange);
-    return () => window.removeEventListener('hashchange', handleHashChange);
+    window.addEventListener('beforeunload', handleBeforeUnload);
+
+    return () => {
+      window.removeEventListener('hashchange', handleHashChange);
+      window.removeEventListener('beforeunload', handleBeforeUnload);
+    };
   }, []);
 
   const renderContent = () => {

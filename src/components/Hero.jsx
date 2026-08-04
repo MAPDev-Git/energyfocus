@@ -39,18 +39,14 @@ export default function Hero() {
             {/* CTA Button & Amazon Certified Badge */}
             <div className="pt-2 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 w-full sm:w-auto">
               <a
-                href="https://buy.stripe.com/00w4gB3Qa7DCeYkglA3Nm00"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-gold text-lg py-4 px-10 rounded-xl shadow-[0_0_30px_rgba(201,168,76,0.35)] w-full sm:w-auto text-center"
+                href="#pricing"
+                className="btn-luminous text-lg py-4 px-10 rounded-xl w-full sm:w-auto text-center"
               >
-                <ShoppingCart className="w-5 h-5" /> Buy Now
+                <ShoppingCart className="w-5 h-5" /> BUY NOW
               </a>
 
               <a
-                href="https://buy.stripe.com/00w4gB3Qa7DCeYkglA3Nm00"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="#pricing"
                 className="inline-flex items-center hover:scale-105 transition-transform duration-300"
               >
                 <img

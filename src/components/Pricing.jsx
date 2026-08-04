@@ -151,7 +151,7 @@ export default function Pricing() {
             BUY NOW ON AMAZON! <ExternalLink className="w-4 h-4" />
           </a>
           <a
-            href="https://www.tiktok.com/@morethan_aromas"
+            href="https://www.tiktok.com/@more.than.aromas?_r=1&_t=ZT-98a1Fko5So9"
             target="_blank"
             rel="noopener noreferrer"
             className="text-base py-4 px-10 rounded-xl border-2 border-[#E0C060] bg-[#080E17]/90 text-[#E0C060] hover:bg-[#E0C060] hover:text-[#050C16] shadow-[0_0_30px_rgba(201,168,76,0.25)] inline-flex items-center justify-center gap-2 uppercase tracking-wider transition-all duration-300 font-extrabold w-full sm:w-auto"

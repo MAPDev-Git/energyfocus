@@ -39,7 +39,7 @@ export default function InstagramCarousel() {
           animate={{ x: ['0%', '-50%'] }}
           transition={{
             ease: 'linear',
-            duration: 35,
+            duration: 15,
             repeat: Infinity,
           }}
         >
