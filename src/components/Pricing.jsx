@@ -2,8 +2,26 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Check, ShoppingCart, Sparkles, ExternalLink } from 'lucide-react';
 import bottleImg from '../../Assets/EF_Base_Promo_SF_Upscale.png';
+import imgLeft from '../../Assets/E&F 3 Bottles.png';
+import imgRight from '../../Assets/E&F 5 Bottle.png';
+import securityLockImg from '../../Assets/security_lock.png';
 
 const packages = [
+  {
+    title: '3 BOTTLE KIT',
+    bottles: '3 Bottles',
+    supply: '90-days supply',
+    price: '$28.44',
+    originalPrice: '',
+    perBottle: '/ Bottle',
+    totalPrice: 'Total: $86.07',
+    badge: 'GREAT VALUE',
+    popular: false,
+    inStock: true,
+    link: 'https://buy.stripe.com/dRmfZj2M67DCcQc5GW3Nm02',
+    image: imgLeft,
+    orderClass: 'order-2 md:order-1'
+  },
   {
     title: 'SINGLE BOTTLE',
     bottles: '1 Bottle',
@@ -11,10 +29,28 @@ const packages = [
     price: '$29.69',
     originalPrice: '',
     perBottle: '/ Bottle',
+    totalPrice: '',
     badge: 'AVAILABLE',
     popular: true,
     inStock: true,
     link: 'https://buy.stripe.com/00w4gB3Qa7DCeYkglA3Nm00',
+    image: bottleImg,
+    orderClass: 'order-1 md:order-2'
+  },
+  {
+    title: '5 BOTTLE KIT',
+    bottles: '5 Bottles',
+    supply: '150-days supply',
+    price: '$28.69',
+    originalPrice: '',
+    perBottle: '/ Bottle',
+    totalPrice: 'Total: $142.20',
+    badge: 'BEST DEAL',
+    popular: false,
+    inStock: true,
+    link: 'https://buy.stripe.com/8x2aEZdqK3nm3fC9Xc3Nm03',
+    image: imgRight,
+    orderClass: 'order-3 md:order-3'
   },
 ];
 
@@ -38,13 +74,15 @@ export default function Pricing() {
         </div>
 
         {/* Package Card */}
-        <div className="grid grid-cols-1 gap-8 items-center mb-16 max-w-md mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center mb-16 max-w-6xl mx-auto">
           {packages.map((pkg, idx) => (
             <motion.div
               key={idx}
-              className={`relative flex flex-col justify-between transition-all duration-300 ${
+              className={`relative flex flex-col justify-between transition-all duration-300 ${pkg.orderClass || ''} ${
                 pkg.inStock
-                  ? 'p-8 md:p-10 md:scale-105 z-20 available-card-neon'
+                  ? (pkg.popular 
+                      ? 'p-8 md:p-10 md:scale-110 z-20 available-card-neon' 
+                      : 'p-8 md:p-8 md:scale-100 z-10 glass-panel border border-[#C9A84C]/30 shadow-[0_0_15px_rgba(201,168,76,0.15)] bg-[#080E17]/90')
                   : 'glass-panel p-6 md:p-7 md:scale-95 z-10 border border-gray-800 bg-[#080E17]/60 opacity-50 grayscale'
               }`}
               initial={{ opacity: 0, y: 30 }}
@@ -91,12 +129,15 @@ export default function Pricing() {
                     </span>
                   </div>
                   <p className="text-xs text-white mt-1 font-mono font-semibold">{pkg.perBottle}</p>
+                  {pkg.totalPrice && (
+                    <p className="text-[11px] text-gray-400 mt-2 font-mono tracking-wide">{pkg.totalPrice}</p>
+                  )}
                 </div>
 
                 {/* Bottle Image */}
                 <div className="py-8 flex justify-center overflow-visible">
                   <img
-                    src={bottleImg}
+                    src={pkg.image}
                     alt={pkg.bottles}
                     className={`object-contain transition-all duration-500 ease-out cursor-pointer ${
                       pkg.inStock
@@ -122,14 +163,20 @@ export default function Pricing() {
 
               <div className="relative z-10">
                 {pkg.inStock ? (
-                  <a
-                    href={pkg.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-full btn-gold py-4 text-center flex items-center justify-center gap-2 text-base font-extrabold shadow-[0_0_25px_rgba(201,168,76,0.35)]"
-                  >
-                    <ShoppingCart className="w-5 h-5" /> Buy Now
-                  </a>
+                  <div className="flex flex-col items-center gap-2">
+                    <a
+                      href={pkg.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full btn-gold py-4 text-center flex items-center justify-center gap-2 text-base font-extrabold shadow-[0_0_25px_rgba(201,168,76,0.35)]"
+                    >
+                      <ShoppingCart className="w-5 h-5" /> Buy Now
+                    </a>
+                    <span className="text-[10px] text-gray-400/80 flex items-center justify-center font-medium tracking-wide gap-1">
+                      <img src={securityLockImg} alt="Security Lock" className="w-3 h-3 opacity-80" />
+                      Secure Checkout - Powered by Stripe
+                    </span>
+                  </div>
                 ) : (
                   <div className="w-full py-3 bg-gray-800/80 text-gray-400 rounded-xl text-center text-xs font-bold tracking-wider uppercase border border-gray-700/50 cursor-not-allowed select-none">
                     OUT OF STOCK
@@ -141,22 +188,24 @@ export default function Pricing() {
         </div>
 
         {/* Amazon and TikTok Buying Option Buttons */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4 text-center">
           <a
             href="https://www.amazon.com/dp/B0G2KL7Y28"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-base py-4 px-10 rounded-xl border-2 border-[#E0C060] bg-[#080E17]/90 text-[#E0C060] hover:bg-[#E0C060] hover:text-[#050C16] shadow-[0_0_30px_rgba(201,168,76,0.25)] inline-flex items-center justify-center gap-2 uppercase tracking-wider transition-all duration-300 font-extrabold w-full sm:w-auto"
+            className="text-base py-4 px-10 rounded-xl border-2 border-[#E0C060] bg-[#080E17]/90 text-[#E0C060] hover:bg-[#E0C060] hover:text-[#050C16] shadow-[0_0_30px_rgba(201,168,76,0.25)] inline-flex flex-col items-center justify-center gap-1 uppercase tracking-wider transition-all duration-300 font-extrabold w-full sm:w-auto"
           >
-            BUY NOW ON AMAZON! <ExternalLink className="w-4 h-4" />
+            <div className="flex items-center gap-2">BUY NOW ON AMAZON <ExternalLink className="w-4 h-4" /></div>
+            <span className="text-sm font-semibold opacity-90">$33 per bottle</span>
           </a>
           <a
-            href="https://www.tiktok.com/@more.than.aromas?_r=1&_t=ZT-98a1Fko5So9"
+            href="https://www.tiktok.com/t/ZT9hyw2pUUucP-p4gzR/"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-base py-4 px-10 rounded-xl border-2 border-[#E0C060] bg-[#080E17]/90 text-[#E0C060] hover:bg-[#E0C060] hover:text-[#050C16] shadow-[0_0_30px_rgba(201,168,76,0.25)] inline-flex items-center justify-center gap-2 uppercase tracking-wider transition-all duration-300 font-extrabold w-full sm:w-auto"
+            className="text-base py-4 px-10 rounded-xl border-2 border-[#E0C060] bg-[#080E17]/90 text-[#E0C060] hover:bg-[#E0C060] hover:text-[#050C16] shadow-[0_0_30px_rgba(201,168,76,0.25)] inline-flex flex-col items-center justify-center gap-1 uppercase tracking-wider transition-all duration-300 font-extrabold w-full sm:w-auto"
           >
-            BUY NOW ON TIKTOK! <ExternalLink className="w-4 h-4" />
+            <div className="flex items-center gap-2">BUY NOW ON TIKTOK <ExternalLink className="w-4 h-4" /></div>
+            <span className="text-sm font-semibold opacity-90">$33 per bottle</span>
           </a>
         </div>
 
